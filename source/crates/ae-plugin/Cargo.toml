@@ -1,0 +1,28 @@
+[package]
+name = "ntsc-rs-ae-plugin"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR ISC OR Apache-2.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+default = []
+cuda = ["ntsc-rs/cuda"]
+opencl = ["ntsc-rs/opencl"]
+
+[target.'cfg(any(windows, target_os="macos"))'.dependencies]
+after-effects = {git = "https://github.com/virtualritz/after-effects", rev = "0e0b197"}
+premiere = {git = "https://github.com/virtualritz/after-effects", rev = "0e0b197"}
+ntsc-rs = { path = "../ntscrs" }
+
+[build-dependencies]
+pipl = {git = "https://github.com/virtualritz/after-effects", rev = "0e0b197"}
+
+[dependencies]
+raw-window-handle = "0.6.2"
+rfd = "0.17"
+
+[lints]
+workspace = true

@@ -1,0 +1,48 @@
+[package]
+name = "ntsc-rs-gui"
+version = "0.9.7"
+edition = "2024"
+default-run = "ntsc-rs-standalone"
+license = "GPL-3.0"
+repository = "https://github.com/valadaptive/ntsc-rs/tree/main/crates/gui"
+
+[dependencies]
+ntsc-rs = { path = "../ntscrs" }
+eframe = { version = "0.36", features = ["persistence", "x11", "wayland"] }
+env_logger = "0.11.3"
+fontique = { git = "https://github.com/valadaptive/parley", branch = "yu-gothic-fix" }
+snafu = "0.9"
+gstreamer = {version = "0.25", features = ["serde"]}
+gstreamer-base = "0.25"
+gstreamer-video = "0.25"
+gstreamer-pbutils = "0.25"
+gst-plugin-webp = { version = "0.15", features = ["static"] }
+futures-lite = "2.3.0"
+async-executor = "1.12.0"
+log = "0.4.20"
+rfd = { version = "0.17", default-features = false, features = ["xdg-portal", "wayland"] }
+getrandom = "0.4.2"
+tinyjson = "2.5.1"
+open = "5.1.4"
+serde = "1.0"
+trash = "5.0.0"
+blocking = "1.7"
+clap = { version = "4.5.17", features = ["cargo", "string"] }
+color-eyre = "0.6.3"
+console = "0.16"
+ureq = { version = "3.1.4", default-features = false, features = ["native-tls"] }
+
+[build-dependencies]
+embed-resource = "3.0.1"
+
+[[bin]]
+name = "ntsc-rs-standalone"
+
+[[bin]]
+name = "ntsc-rs-launcher"
+
+[[bin]]
+name = "ntsc-rs-cli"
+
+[lints]
+workspace = true
